@@ -21,50 +21,36 @@ Because we wanted the chatbot's main interface to be discord, we had to import i
       TESS=discord.Client() #--where  TESS is the client object that we create.
       TESS.run()            #--Using the discord run function that connects the machine running the scripts to the discord server.
                             #--This run fucntion is placed at the end of the script.
-Now that the bot is up and running, We used the @Client.event functtion to detect incoming messages. To be able to differentiate if the text reieved what a command or general text i wrote the followig code:
+Now that the bot is up and running, We used the *@Client.event* functtion to detect incoming messages. To be able to differentiate if the text reieved what a command or general text i wrote the followig code:
 
       if ((message.content[0])=='!' and ('play' in message.content)): #--checking if an input is a command
 
             if TESS.is_voice_connected(server) == False:              #--checking if we already have a voice connection to the voice client 
                   await TESS.join_voice_channel(channel)
                   TESS_voice=TESS.voice_client_in(server)
-
                   print('joined voice channel')
-
                   message.content=message.content.strip('!')
                   message.content=message.content.strip('play')
-
                   first_link=get_vid_link(message.content)
                   song_lenght=int(lenght_song(first_link))
                   vid='https://youtube.com{}'.format(first_link)
-
-                  song_player=await TESS_voice.create_ytdl_player(vid)
-                  players_instances[server.id]=song_player
+                  song_player=await TESS_voice.create_ytdl_player(vid) #--Creates a stream player in a new thread in  the backgrounf from youtube.
+                  players_instances[server.id]=song_player #-- Storing an instance of the song play so that it can accessed later
                   song_player.start()
                   print(players_instances)
             else:
                   TESS_voice=TESS.voice_client_in(server)
                   message.content=message.content.strip('!')
                   message.content=message.content.strip('play')
-
+                  message.content=format_message(message.content)
                   first_link=get_vid_link(message.content)
                   song_lenght=int(lenght_song(first_link))
                   vid='https://youtube.com{}'.format(first_link)
-
                   song_player=await TESS_voice.create_ytdl_player(vid)
                   players_instances[server.id]=song_player
                   song_player.start()
 
-
-
-
-
-
-
-
-
-
-- 
+In the above example, if the first character of the in-comming message is '!' and if it contains the string 'play',then I consider this message to be a command. In this case, the command is to play a song. I used the same method to identify other commands such as stop and resume. Now that I knmow the message is a "play <song>" command,.I checked if the theres was a voice connection between the user and the bot in other to stream audio to the channel the user is in. I removed the command prefix("!" and "play") from the message  and passed it to the *format_message* function.assumiing that what was left in the messagewas either the arist or song  or both.
 
 
 
@@ -101,4 +87,5 @@ Throught out the course of this project I have gained many valuable skills. Thes
 
 
 
-# The link to the main project repository is https://github.coventry.ac.uk/demanouh/CHATBOT
+*The link to the main project repository is https://github.coventry.ac.uk/demanouh/CHATBOT*
+https://guides.github.com/features/mastering-markdown/
