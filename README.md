@@ -23,37 +23,37 @@ Because we wanted the chatbot's main interface to be discord, we had to import i
                             #--This run fucntion is placed at the end of the script.
 Now that the bot is up and running, We used the @Client.event functtion to detect incoming messages. To be able to differentiate if the text reieved what a command or general text i wrote the followig code:
 
-if ((message.content[0])=='!' and ('play' in message.content)): #--checking if an input is a command
+      if ((message.content[0])=='!' and ('play' in message.content)): #--checking if an input is a command
 
-      if TESS.is_voice_connected(server) == False:              #--checking if we already have a voice connection to the voice client 
-            await TESS.join_voice_channel(channel)
-            TESS_voice=TESS.voice_client_in(server)
+            if TESS.is_voice_connected(server) == False:              #--checking if we already have a voice connection to the voice client 
+                  await TESS.join_voice_channel(channel)
+                  TESS_voice=TESS.voice_client_in(server)
 
-            print('joined voice channel')
+                  print('joined voice channel')
 
-            message.content=message.content.strip('!')
-            message.content=message.content.strip('play')
+                  message.content=message.content.strip('!')
+                  message.content=message.content.strip('play')
 
-            first_link=get_vid_link(message.content)
-            song_lenght=int(lenght_song(first_link))
-            vid='https://youtube.com{}'.format(first_link)
+                  first_link=get_vid_link(message.content)
+                  song_lenght=int(lenght_song(first_link))
+                  vid='https://youtube.com{}'.format(first_link)
 
-            song_player=await TESS_voice.create_ytdl_player(vid)
-            players_instances[server.id]=song_player
-            song_player.start()
-            print(players_instances)
-      else:
-            TESS_voice=TESS.voice_client_in(server)
-            message.content=message.content.strip('!')
-            message.content=message.content.strip('play')
+                  song_player=await TESS_voice.create_ytdl_player(vid)
+                  players_instances[server.id]=song_player
+                  song_player.start()
+                  print(players_instances)
+            else:
+                  TESS_voice=TESS.voice_client_in(server)
+                  message.content=message.content.strip('!')
+                  message.content=message.content.strip('play')
 
-            first_link=get_vid_link(message.content)
-            song_lenght=int(lenght_song(first_link))
-            vid='https://youtube.com{}'.format(first_link)
+                  first_link=get_vid_link(message.content)
+                  song_lenght=int(lenght_song(first_link))
+                  vid='https://youtube.com{}'.format(first_link)
 
-            song_player=await TESS_voice.create_ytdl_player(vid)
-            players_instances[server.id]=song_player
-            song_player.start()
+                  song_player=await TESS_voice.create_ytdl_player(vid)
+                  players_instances[server.id]=song_player
+                  song_player.start()
 
 
 
