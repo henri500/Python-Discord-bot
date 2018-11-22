@@ -35,7 +35,7 @@ Now that the bot is up and running, We used the *@Client.event* functtion to det
                   song_lenght=int(lenght_song(first_link))
                   vid='https://youtube.com{}'.format(first_link)
                   song_player=await TESS_voice.create_ytdl_player(vid) #--Creates a stream player in a new thread in  the backgrounf from youtube.
-                  players_instances[server.id]=song_player #-- Storing an instance of the song play so that it can accessed later
+                  players_instances[server.id]=song_player             #-- Storing an instance of the song play so that it can accessed later
                   song_player.start()
                   print(players_instances)
             else:
@@ -50,7 +50,14 @@ Now that the bot is up and running, We used the *@Client.event* functtion to det
                   players_instances[server.id]=song_player
                   song_player.start()
 
-In the above example, if the first character of the in-comming message is '!' and if it contains the string 'play',then I consider this message to be a command. In this case, the command is to play a song. I used the same method to identify other commands such as stop and resume. Now that I knmow the message is a "play <song>" command,.I checked if the theres was a voice connection between the user and the bot in other to stream audio to the channel the user is in. I removed the command prefix("!" and "play") from the message  and passed it to the *format_message* function.assumiing that what was left in the messagewas either the arist or song  or both.
+In the above example, if the first character of the in-comming message is '!' and if it contains the string 'play',then I consider this message to be a command. In this case, the command is to play a song. I used the same method to identify other commands such as stop and resume. Now that I knmow the message is a "play <song>" command,.I checked if the theres was a voice connection between the user and the bot in other to stream audio to the channel the user is in. I removed the command prefix("!" and "play") from the message  and passed it to the *format_message* function which remove charaters such as question marks.
+in order to play the corect song required by the user, I wrote a *get_vid_link* that uses requests and BeautifulSoup modules to search for the 
+https://www.youtube.com/watch?v=6AF4hTDXLlA     
+      
+      
+      
+      
+ assumiing that what was left in the messagewas either the arist or song  or both.
 
 
 
@@ -87,5 +94,5 @@ Throught out the course of this project I have gained many valuable skills. Thes
 
 
 
-*The link to the main project repository is https://github.coventry.ac.uk/demanouh/CHATBOT*
+*The link to the main project repository  with all the code is fond at https://github.coventry.ac.uk/demanouh/CHATBOT*
 https://guides.github.com/features/mastering-markdown/
