@@ -1,5 +1,5 @@
 # Python-Discord-bot
-#Project brief:
+# Project brief:
 By the end of this prject, the chatbot has the following features:
 -Stream music from youtube in to the chat channel they are currently in
 -Find navigation routes to place users want
