@@ -51,13 +51,16 @@ Now that the bot is up and running, We used the *@Client.event* functtion to det
                   song_player.start()
 
 In the above example, if the first character of the in-comming message is '!' and if it contains the string 'play',then I consider this message to be a command. In this case, the command is to play a song. I used the same method to identify other commands such as stop and resume. Now that I knmow the message is a "play <song>" command,.I checked if the theres was a voice connection between the user and the bot in other to stream audio to the channel the user is in. I removed the command prefix("!" and "play") from the message  and passed it to the *format_message* function which remove charaters such as question marks.
-in order to play the corect song required by the user, I wrote a *get_vid_link* that uses requests and BeautifulSoup modules to search for the 
-https://www.youtube.com/watch?v=6AF4hTDXLlA     
+in order to play the corect song required by the user, I wrote a *get_vid_link* function that uses requests and BeautifulSoup modules to search for a song on youtube and returns the id of th first e video that appears onn a youtube search.
+ 
+__**why does it return onmly the first link?**__ Well based on youtube's searching algorithm which is very accurate, the first link on the page would very likely be the song or artist most popular song(this will be the case if the user ony enters the name of an artist.).
+This can of course be improved in later prototypes bye giving the choice to the user to select between the first five results returned by the youtube search engine.
+    
       
       
       
       
- assumiing that what was left in the messagewas either the arist or song  or both.
+ 
 
 
 
