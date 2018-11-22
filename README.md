@@ -10,9 +10,9 @@ By the end of this prototype, the chatbot has the following features:
 The module requirements for the chatbot wok are listed in the "Requirement.txt" file of this repository.
 Because we wanted the chatbot's main interface to be discord, we had to import it and create a  dicord client object as such :
       
-      TESS=discord.Client() #--where  TESS is the client object that we create.
+      ```TESS=discord.Client() #--where  TESS is the client object that we create.
       TESS.run()            #--Using the discord run function that connects the machine running the scripts to the discord server.
-                            #--This run fucntion is placed at the end of the script.
+                            #--This run fucntion is placed at the end of the script.```
 How will we be able to know when the bot recieves a message then?
 Forturnately for us the discord API has 
 
