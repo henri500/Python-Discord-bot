@@ -6,6 +6,14 @@ By the end of this prototype, the chatbot has the following features:
 - Provide news headlines concerning sports and more from different sources depending on the user's choice
 - Give information on sport team such as foundation date, competion,country and  the color of the team's kit
 
+
+# What did i do ?
+In this project, apart from helping my team membes with some coding problems I was in charge of the following tasks:
+
+- Create the interface between the discord API and the main script of the chatbot
+- Handle message recieved from users and determine what action the chatbot would do. An example of this is how I filter commands from common text.
+- Used OpenWeather API to retrieve weather information accordin to the user's location.
+
 # How does it work ?
 The module requirements for the chatbot wok are listed in the "Requirement.txt" file of this repository.
 Because we wanted the chatbot's main interface to be discord, we had to import it and create a  dicord client object as such :
@@ -56,12 +64,6 @@ if ((message.content[0])=='!' and ('play' in message.content)): #--checking if a
 
 
 
-# What did i do ?
-In this project, apart from helping my team membes with some coding problems I was in charge of the following tasks:
-
-- Create the interface between the discord API and the main script of the chatbot
-- Handle message recieved from users and determine what action the chatbot would do. An example of this is how I filter commands from common text.
-- Used OpenWeather API to retrieve weather information accordin to the user's location.
 - 
 
 
