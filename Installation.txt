@@ -1,0 +1,13 @@
+Using pip package manager and python3.6, install the following libraries
+  -wit
+  -discord
+  -requests
+  -Beutifousoup
+
+Lastly, download the corresponding version of  ffmpeg for your OS from :
+https://www.ffmpeg.org/download.html
+Then extract the zip file into your preferred location. Rename the extracted folder to "ffmpeg" and add a link to this folder into your environmental variables.
+
+NOTE :
+  ffmpeg is framwork that encode and decode many file formats but in this project we use it to convert youtube
+  videos to audio files that can be stream  streames to a discord server.
